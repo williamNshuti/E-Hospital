@@ -32,6 +32,9 @@ const initialState = {
   pharmacistPatient: [],
   pharmacistPatientIsLoading: false,
   pharmacistPatientIsError: null,
+  patientPrescription: [],
+  patientPrescriptionIsLoading: false,
+  patientPrescriptionIsError: null,
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -280,6 +283,29 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         pharmacistPatientIsLoading: false,
         pharmacistPatientIsError: action.payload,
+      };
+    }
+
+    case actionTypes.getPatientPrescriptionRequest: {
+      return {
+        ...state,
+        patientPrescriptionIsLoading: true,
+        patientPrescriptionIsError: null,
+      };
+    }
+    case actionTypes.getPatientPrescriptionSuccess: {
+      return {
+        ...state,
+        patientPrescriptionIsLoading: false,
+        patientPrescription: action.payload,
+        patientPrescriptionIsError: null,
+      };
+    }
+    case actionTypes.getPatientPrescriptionFailure: {
+      return {
+        ...state,
+        patientPrescriptionIsLoading: false,
+        patientPrescriptionIsError: action.payload,
       };
     }
     case "SAVE_USER":

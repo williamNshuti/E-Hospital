@@ -155,8 +155,8 @@ function PatientPharmacist() {
                     secondary: "#333",
                   },
                 });
-                // actions.resetForm();
-                // setModalOpen1(false);
+                actions.resetForm();
+                setModalOpen(false);
               })
               .catch((error) => {
                 toast.error(`Sending Medecine Failed! Try again : ${error}`, {

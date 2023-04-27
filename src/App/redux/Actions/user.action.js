@@ -492,6 +492,50 @@ export const ProvidePatientPrescription = (values) => {
   };
 };
 
+// Fetch Prescription
+
+export const FetchPatientPrescription = () => {
+  return (dispatch, getState) => {
+    const user = getState().User.user;
+    dispatch({ type: actionTypes.getPatientPrescriptionRequest });
+    axios
+      .get(
+        `${baseUrl}/api/v1/patient/prescriptions/all?email=${user?.USER?.email}`,
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      )
+      .then(function (response) {
+        const res = response.data;
+        const { RETURN_DATA, RETURN_MSG, RETURN_CODE } = res;
+        if (RETURN_CODE === 1) {
+          dispatch({
+            type: actionTypes.getPatientPrescriptionSuccess,
+            payload: RETURN_DATA?.PRESCRIPTIONS,
+          });
+        } else {
+          dispatch({
+            type: actionTypes.getPatientPrescriptionSuccess,
+            payload: [],
+          });
+        }
+      })
+      .catch(function (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.error_message) ||
+          error.message ||
+          error.toString();
+        dispatch({
+          type: actionTypes.getPatientPrescriptionFailure,
+          payload: message,
+        });
+      });
+  };
+};
 // Grant Access to Pharmacist
 
 export const GrantAccessPharmacist = (email) => {

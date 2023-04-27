@@ -338,7 +338,7 @@ function PatientPhysiscist() {
       ) : (
         <div className="p-8">
           <h3 className="text-3xl font-bold text-center mb-8">
-            Meet Your Patients/ Physicists
+            Meet Your Patients
           </h3>
           <div class="flex flex-wrap justify-start">
             {physicistPatient.map((patient) => (

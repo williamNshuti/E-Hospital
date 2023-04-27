@@ -29,7 +29,6 @@ const actionTypes = {
   ProvidePrescriptionFailure: "PROVIDE_PRESCRIPTION_FAILURE",
 
   // Physicists
-
   getPhysicistRequest: "GET_PHYSICIST_REQUEST",
   getPhysicistSuccess: "GET_PHYSICIST_SUCCESS",
   getPhysicistFailure: "GET_PHYSICIST_FAILURE",
@@ -39,13 +38,16 @@ const actionTypes = {
   ProvideConsultanceFailure: "PROVIDE_CONSULTANCE_FAILURE",
 
   // Patients
-
   getPatientRequest: "GET_PATIENT_REQUEST",
   getPatientSuccess: "GET_PATIENT_SUCCESS",
   getPatientFailure: "GET_PATIENT_FAILURE",
 
-  // Patient Grant Access
+  // Fetch Prescription
+  getPatientPrescriptionRequest: "GET_PATIENT_PRESCRIPTION_REQUEST",
+  getPatientPrescriptionSuccess: "GET_PATIENT_PRESCRIPTION_SUCCESS",
+  getPatientPrescriptionFailure: "GET_PATIENT_PRESCRIPTION_FAILURE",
 
+  // Patient Grant Access
   grantPharmacistAccessRequest: "PHARMACIST_GRANT_ACCESS_REQUEST",
   grantPharmacistAccessSuccess: "PHARMACIST_GRANT_ACCESS_SUCCESS",
   grantPharmacistAccessFailure: "PHARMACIST_GRANT_ACCESS_FAILURE",
