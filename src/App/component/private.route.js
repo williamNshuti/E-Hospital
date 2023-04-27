@@ -10,7 +10,6 @@ export function PrivateRoute({ children }) {
   useEffect(() => {
     if (token && !user) {
       dispatch(saveUser(token));
-      console.log("done mfks");
     }
   }, [token, user]);
 
